@@ -3,24 +3,27 @@ import "./style.css";
 import type { JSX } from "solid-js";
 import logoUrl from "../assets/logo.svg";
 import { Link } from "../components/Link.js";
+import SQProvider from "../components/provider";
 
 export default function LayoutDefault(props: { children?: JSX.Element }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        "max-width": "900px",
-        margin: "auto",
-      }}
-    >
-      <Sidebar>
-        <Logo />
-        <Link href="/">Welcome</Link>
-        <Link href="/todo">Todo</Link>
-        <Link href="/star-wars">Data Fetching</Link>
-      </Sidebar>
-      <Content>{props.children}</Content>
-    </div>
+    <SQProvider>
+      <div
+        style={{
+          display: "flex",
+          "max-width": "900px",
+          margin: "auto",
+        }}
+      >
+        <Sidebar>
+          <Logo />
+          <Link href="/">Welcome</Link>
+          <Link href="/todo">Todo</Link>
+          <Link href="/star-wars">Data Fetching</Link>
+        </Sidebar>
+        <Content>{props.children}</Content>
+      </div>
+    </SQProvider>
   );
 }
 

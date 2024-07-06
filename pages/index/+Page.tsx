@@ -14,7 +14,7 @@ export default function Page() {
         </li>
       </ul>
       <h3>Star Wars Movies</h3>
-      <Suspense fallback={<p>Loading ...</p>}>
+      <Suspense>
         <MovieList />
       </Suspense>
     </>
