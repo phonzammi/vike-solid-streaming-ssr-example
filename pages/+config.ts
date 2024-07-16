@@ -10,5 +10,6 @@ export default {
   // <title>
   title: "My Vike App",
   stream: true,
+  injectScriptsAt: "STREAM",
   extends: vikeSolid,
 } satisfies Config;
