@@ -1,6 +1,6 @@
-import { Suspense } from "solid-js";
-import { MovieList } from "../../components/MovieList.jsx";
+import { createResource, For, Suspense } from "solid-js";
 import { Counter } from "../../components/Counter.jsx";
+import { fetchMovies } from "../../utils/api.js";
 
 export default function Page() {
   return (
@@ -14,9 +14,25 @@ export default function Page() {
         </li>
       </ul>
       <h3>Star Wars Movies</h3>
-      <Suspense fallback={<p>Loading ...</p>}>
-        <MovieList />
-      </Suspense>
+      <MovieList />
     </>
   );
+}
+
+function MovieList() {
+  const [movies] = createResource(fetchMovies)
+
+  return (
+    <Suspense fallback={<p>Loading ...</p>}>
+      <ol>
+        <For each={movies()}>
+          {(movie) => (
+            <li>
+              {movie.title} ({movie.release_date})
+            </li>
+          )}
+        </For>
+      </ol>
+    </Suspense>
+  )
 }
