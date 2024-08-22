@@ -1,21 +1,21 @@
-import { isServer } from "solid-js/web"
+import { isServer } from "solid-js/web";
 
 type Movie = {
-    title: string
-    release_date: string
-}
+  title: string;
+  release_date: string;
+};
 
 export const fetchMovies = async () => {
-    console.log("fetchMovies start")
-    console.log( isServer ? "on server" : "on client")
+  console.log("fetchMovies start");
+  console.log(isServer ? "on server" : "on client");
 
-    const response = await fetch('https://star-wars.brillout.com/api/films.json')
+  const response = await fetch("https://star-wars.brillout.com/api/films.json");
 
-    // Simulate slow network
-    await new Promise((r) => setTimeout(r, 6 * 1000))
-    const movies: Movie[] = (await response.json()).results
+  // Simulate slow network
+  await new Promise((r) => setTimeout(r, 6 * 1000));
+  const movies: Movie[] = (await response.json()).results;
 
-    console.log("fetchMovies done")
+  console.log("fetchMovies done");
 
-    return movies
-}
+  return movies;
+};
