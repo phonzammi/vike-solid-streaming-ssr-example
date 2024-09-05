@@ -3,5 +3,5 @@ import type { UserConfig } from "vite";
 import vike from "vike/plugin";
 
 export default {
-  plugins: [vike({}), vikeSolid()],
+  plugins: [vike(), vikeSolid()],
 } satisfies UserConfig;

@@ -1,10 +1,8 @@
-import "./style.css";
-
-import type { JSX } from "solid-js";
+import "../layouts/style.css";
 import logoUrl from "../assets/logo.svg";
-import { Link } from "../components/Link.js";
+import type { JSX } from "solid-js";
 
-export default function LayoutDefault(props: { children?: JSX.Element }) {
+export function Layout(props: { children?: JSX.Element }) {
   return (
     <div
       style={{
@@ -15,9 +13,6 @@ export default function LayoutDefault(props: { children?: JSX.Element }) {
     >
       <Sidebar>
         <Logo />
-        <Link href="/">Welcome</Link>
-        <Link href="/todo">Todo</Link>
-        <Link href="/star-wars">Data Fetching</Link>
       </Sidebar>
       <Content>{props.children}</Content>
     </div>
@@ -68,7 +63,7 @@ function Logo() {
       }}
     >
       <a href="/">
-        <img src={logoUrl} height={64} width={64} alt="logo" />
+        <img src={logoUrl} height={64} width={64} />
       </a>
     </div>
   );
