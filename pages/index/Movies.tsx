@@ -1,6 +1,4 @@
 import { createResource, For, Show, Suspense } from "solid-js"
-import { Config } from "vike-solid/Config";
-import { Head } from "vike-solid/Head";
 import { navigate } from "vike/client/router";
 import { MovieDetails } from "./types";
 
@@ -11,12 +9,6 @@ export function Movies() {
     };
     return (
         <Suspense fallback={<p>Loading ...</p>}>
-            <Show when={movies()}>
-                <Config title={`${movies()?.length} Star Wars movies`} />
-                <Head>
-                    <meta name="description" content={`List of ${movies.length} Star Wars movies.`} />
-                </Head>
-            </Show>
             <h1>Star Wars Movies</h1>
             <ol>
                 <For each={movies()}>

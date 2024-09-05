@@ -1,6 +1,5 @@
 import { createResource, ErrorBoundary, Show, Suspense } from "solid-js";
 import { MovieDetails } from "../types";
-import { Config } from "vike-solid/Config";
 
 export function Movie(props: { id: string }) {
     const [movie, { refetch }] = createResource(() => props.id, (id) => getStarWarsMovie(id))
@@ -21,14 +20,6 @@ export function Movie(props: { id: string }) {
                     </button>
                 </>
             )}>
-                <Show when={movie()}>
-                    <Config
-                        title={movie()?.title}
-                        Head={
-                            <meta name="description" content={`Star Wars Movie ${movie()?.title} from ${movie()?.director}`} />
-                        }
-                    />
-                </Show>
                 <h1>Star Wars Movies</h1>
                 <ul>
                     <li>
