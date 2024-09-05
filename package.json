@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "cross-fetch": "^4.0.0",
-    "solid-js": "^1.8.21",
-    "vike": "^0.4.191",
-    "vike-solid": "^0.6.2"
+    "solid-js": "^1.8.22",
+    "vike": "^0.4.194",
+    "vike-solid": "^0.7.4"
   }
 }
