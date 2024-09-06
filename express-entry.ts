@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 
 import express from "express";
 import { renderPage } from "vike/server";
+import compression from "@polka/compression";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -16,6 +17,8 @@ export default (await startServer()) as unknown;
 
 async function startServer() {
   const app = express();
+
+  app.use(compression());
 
   if (process.env.NODE_ENV === "production") {
     app.use(express.static(`${root}/dist/client`));
